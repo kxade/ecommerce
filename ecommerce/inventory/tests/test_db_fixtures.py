@@ -103,5 +103,3 @@ def test_inventory_db_product_insert_data(
     result_product_category = new_product.category.all().count()
     assert "web_id_" in new_product.web_id
     assert result_product_category == 2
-
-    
