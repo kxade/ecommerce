@@ -27,3 +27,11 @@ class ProductFactory(factory.django.DjangoModelFactory):
     is_active = True
     created_at = "2021-09-04 22:14:18.279092"
     updated_at = "2021-09-04 22:14:18.279092"
+
+    @factory.post_generation
+    def category(self, create, extracted, **kwargs):
+        if not create or not extracted:
+            return
+        
+        for cat in extracted:
+            self.category.add(cat)
