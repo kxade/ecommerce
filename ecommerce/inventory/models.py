@@ -103,7 +103,7 @@ class Product(models.Model):
         verbose_name=('date product created'),
         help_text=_('format: Y-m-d H:M:S'),
     )
-    udated_at = models.DateTimeField(
+    updated_at = models.DateTimeField(
         auto_now=True,
         verbose_name=('date product created'),
         help_text=_('format: Y-m-d H:M:S'),
