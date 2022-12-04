@@ -14,7 +14,7 @@ class CategoryFactory(factory.django.DjangoModelFactory):
     name = factory.Sequence(lambda n: 'cat_slug_%d' % n)
     slug = fake.lexify(text='cat_name_?????')
 
-register(CategoryFactory)
+
 
 class ProductFactory(factory.django.DjangoModelFactory):
     class Meta:
@@ -33,5 +33,10 @@ class ProductFactory(factory.django.DjangoModelFactory):
         if not create or not extracted:
             return
         
-        for cat in extracted:
-            self.category.add(cat)
+        if extracted:
+            for cat in extracted:
+                self.category.add(cat)
+
+
+register(CategoryFactory)
+register(ProductFactory)
