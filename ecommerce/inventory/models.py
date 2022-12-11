@@ -130,9 +130,9 @@ class ProductType(models.Model):
         return self.name
 
 
-class ProductType(models.Model):
+class Brand(models.Model):
     """
-    Product type table
+    Product brand table
     """
     name = models.CharField(
         max_length=255,
