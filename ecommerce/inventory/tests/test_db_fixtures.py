@@ -198,3 +198,27 @@ def test_inventory_db_product_inventory_insert_data(
     assert new_product.weight == 987
 
 
+def test_inventory_db_product_type_insert_data(db, product_type_factory):
+
+    new_type = product_type_factory.create(name="demo_type")
+    assert new_type.name == "demo_type"
+
+
+def test_inventory_db_product_type_uniqueness_integrity(
+    db, product_type_factory
+):
+    product_type_factory.create(name='not unique')
+    with pytest.raises(IntegrityError):
+        product_type_factory.create(name='not unique')
+
+
+def test_inventory_db_brand_insert_data(db, brand_factory):
+
+    new_type = brand_factory.create(name="demo_brand")
+    assert new_type.name == "demo_brand"
+
+
+def test_inventory_db_brand_uniqueness_integrity(db, brand_factory):
+    brand_factory.create(name='not unique')
+    with pytest.raises(IntegrityError):
+        brand_factory.create(name='not unique')
